@@ -1,0 +1,39 @@
+<div class="head-page" *ngIf="identity">
+    <h1>{{titulo}}</h1>
+    <a [routerLink]="['/crear-detective']" *ngIf="identity && identity.role == 'ROLE_ADMIN'" class="btn btn-default">
+        Agregar Detective
+    </a>
+    <ul class="pagination pull-right">
+        <li><a [routerLink]="['/detectives/', prev_page]">&laquo;</a></li>
+        <li><a [routerLink]="['/detectives/', next_page]">&raquo;</a></li>
+    </ul>
+</div>
+
+<div class="clearfix"></div>
+<ul class="detective-list" *ngIf="identity">
+    <li *ngFor="let detective of detectives" class="col-lg-3 detective-item">
+        <div class="detective-image">
+            <img src="{{url+ 'getImageDetective/' + detective.image}}"/>
+        </div>
+        <div class="detective-name">
+            <a [routerLink]="['/detective/', detective._id]">
+            {{detective.name}}
+            </a>
+            <div class="buttons" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+                <a [routerLink]="['/edit-detective/', detective._id]" class="btn btn-sm btn-warning">Editar</a>
+                <a (click)="onDeleteConfirm(detective._id)" class="btn btn-sm btn-danger">
+                    Eliminar
+                </a>
+            </div>
+
+            <div class="seguro" *ngIf="confirmado == detective._id">
+                <a (click)="onDeleteDetective(detective._id)" class="btn btn-sm btn-danger">
+                    Eliminar
+                </a>
+                <a (click)="onCancelDetective()" class="btn btn-sm btn-default">
+                    Cancelar
+                </a>
+            </div>
+        </div>
+    </li>
+</ul>

@@ -1,0 +1,128 @@
+html, body{
+    margin: 0px;
+    height: 100%;
+    background-color: #eee;
+}
+
+.actived{
+    border-bottom: 4px solid #84BD00;
+    padding-bottom: 4px;
+}
+
+.central{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.head-title{
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    display: block;
+}
+
+.navigation{
+    text-align: center;
+    color: white;
+    background: #1C1C1F;
+    height: 100%;
+}
+
+.navigation a{
+    color: #ddd;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    text-decoration: none;
+}
+
+.navigation a:hover{
+    color: white;
+}
+
+.navigation .glyphicon{
+    font-size: 25px;
+    display: block;
+    width: 100%;
+}
+#user_logged{
+    text-align: center;
+    background: #1C1C1F;
+    position: absolute;
+    bottom: 0px;
+    border-top: 1px solid #444;
+    width: 75%;
+}
+
+#user_logged .user-image{
+    background-color: #eee;
+    border-radius: 100px;
+    height: 57px;
+    width: 57px;
+    margin: 0px auto;
+    margin-top: 15px;
+    overflow: hidden;
+}
+
+#user_logged .user-image img{
+    width: 57px;
+}
+
+.btn-logout{
+    cursor: pointer;
+}
+.detective_image_for_edit img{
+    width: 150px;
+}
+
+.detective-list{
+    margin: 0px;
+    padding: 0px;
+    margin-top: 30px;
+    list-style: none;
+}
+
+.detective-item{
+    width: 23%;
+    margin: 0px;
+    padding: 0px;
+    height: 317px;
+    border: 1px solid #444;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.detective-item .detective-image{
+    height: 245px;
+    width: 100%;
+    overflow: hidden;
+    background: black;
+}
+
+.detective-item .detective-image img{
+    min-width: 100%;
+    height: 100%;
+}
+
+.detective-item .detective-name{
+    padding: 10px;
+    color: white;
+    background: #222326;
+}
+
+.detective-item .detective-name a{
+    color: white;
+}
+
+#detective-head-card .image{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    float: left;
+    margin-right: 30px;
+}
+
+#detective-head-card .image img{
+    height: 135px;
+}

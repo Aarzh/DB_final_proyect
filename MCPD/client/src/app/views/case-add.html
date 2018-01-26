@@ -1,0 +1,50 @@
+<div class="col-lg-6">
+    <h1>{{titulo}}</h1>
+
+    <div *ngIf = "alertMessage">
+      <div class="alert alert-info">
+          {{alertMessage}}
+      </div>
+    </div>
+
+    <form #formCase="ngForm" (ngSubmit)="onSubmit()">
+        <p>
+            <label>Titulo: </label>
+            <input type="text" #name="ngModel" name="title" placeholder="Titulo" [(ngModel)]="caso.title" required class="form-control"/>
+            <span *ngIf="!title.valid && title.touched">
+              Campo Obligatorio
+            </span>
+            </p>
+        <p>
+            <label>Descripción: </label>
+            <input type="text" #name="ngModel" name="description" placeholder="Descripción" [(ngModel)]="caso.description" required class="form-control"/>
+            <span *ngIf="!description.valid && description.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Año: </label>
+            <input type="number" #name="ngModel" name="year" placeholder="Año" [(ngModel)]="caso.year" required class="form-control"/>
+            <span *ngIf="!year.valid && year.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Localización: </label>
+            <input type="text" #name="ngModel" name="loc" placeholder="Localización" [(ngModel)]="caso.loc" required class="form-control"/>
+            <span *ngIf="!loc.valid && loc.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Estado: </label>
+            <input type="text" #name="ngModel" name="state" placeholder="Estado" [(ngModel)]="caso.state" required class="form-control"/>
+            <span *ngIf="!state.valid && state.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+
+        <input type="submit" value="{{titulo}}" class="btn btn-success"/>
+
+    </form>
+</div>

@@ -1,0 +1,64 @@
+<div class="col-lg-4" *ngIf="identity && identity.role == 'ROLE_ADMIN'">
+    <h1>Añadir Detective</h1>
+
+    <div *ngIf = "alertMessage">
+      <div class="alert alert-info">
+          {{alertMessage}}
+      </div>
+    </div>
+
+    <form #formDetective="ngForm" ngSubmit="onSubmit()">
+        <p>
+            <label>Nombre: </label>
+            <input type="text" #name="ngModel" name="name" placeholder="Nombre" [(ngModel)]="detective.name" required class="form-control"/>
+            <span *ngIf="!name.valid && name.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Surname: </label>
+            <input type="text" #name="ngModel" name="surname" placeholder="Apellido" [(ngModel)]="detective.surname" required class="form-control"/>
+            <span *ngIf="!surname.valid && surname.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Rango: </label>
+            <input type="text" #name="ngModel" name="rank" placeholder="Rango" [(ngModel)]="detective.rank" required class="form-control"/>
+            <span *ngIf="!rank.valid && rank.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Perfil: </label>
+            <input type="text" #name="ngModel" name="description" placeholder="Descripción" [(ngModel)]="detective.description" required class="form-control"/>
+            <span *ngIf="!description.valid && description.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <p>
+            <label>Tiempo en servicio: </label>
+            <input type="text" #name="ngModel" name="year" placeholder="Año" [(ngModel)]="detective.year" required class="form-control"/>
+            <span *ngIf="!year.valid && year.touched">
+              Campo Obligatorio
+            </span>
+        </p>
+        <div *ngIf="is_edit" class="">
+            <div class="detective_image_for_edit" *ngIf="detective.image && detective.image != 'null'">
+                <img src="{{url + 'getImageDetective/' + detective.image }}" />
+            </div>
+            <p>
+                <label> Foto del agente</label>
+                <input type="file" placeholder="Subir imagen..." (change)="fileChangeEvent($event)" />
+            </p>
+        </div>
+
+        <input type="submit" value="{{titulo}}" class="btn btn-success"/>
+
+    </form>
+</div>
+
+<div class="col-lg-4" *ngIf="!identity || identity.role != 'ROLE_ADMIN'">
+    <h1>Alto!</h1>
+    <p>No cuentas con el permiso para esta accion</p>
+</div>

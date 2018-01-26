@@ -1,0 +1,49 @@
+<div *ngIf="detective" class="detective-box">
+
+    <div id="detective-head-card">
+        <div class="image">
+            <img src="{{url+ 'getImageDetective/' + detective.image}}" *ngIf="detective.image &&
+            detective.image != 'null'"/>
+        </div>
+        <div class="data">
+            <h1>{{detective.name}}</h1>
+            <p class="description">{{detective.description}}</p>
+            <a *ngIf="identity && identity.role == 'ROLE_ADMIN'" [routerLink]="['/crear-cases/', detective._id]" class="btn btn-default">Agregar Casos</a>
+    </div>
+
+    <div class="clearfix"></div>
+    <div id="gallery-cases">
+        <!--listar albums-->
+        <ul class ="cases-list">
+            <li *ngFor="let case of cases" class="col-lg-4 case-item">
+                <div class="body">
+                    <p>
+                        <a href="#">
+                            {{cases.title}}
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            {{cases.description}}
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            {{cases.year}}
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            {{cases.loc}}
+                        </a>
+                    </p>
+                    <p>
+                        <a href="#">
+                            {{cases.state}}
+                        </a>
+                    </p>
+                </div>
+            <li>
+        </ul>
+    </div>
+</div>
